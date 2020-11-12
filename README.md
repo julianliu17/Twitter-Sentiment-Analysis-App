@@ -1,4 +1,4 @@
-![Twitter Logo](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/twitterlogo.png "Twitter Logo")
+![Twitter Logo](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/twitterlogo.jpg "Twitter Logo")
 # Twitter-Sentiment-Analysis-App
 An app that allows users to search for whatever topic they wish and specify the number of recent tweets they would like to parse, then returns the top 5 most positive and most negative tweets using both NLTK and TextBlob models.
 
@@ -27,3 +27,44 @@ __Data Source__: https://www.twitter.com/
 
 ## App Demo
 ![App Demo](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/app_demo.JPG "App Demo")
+
+The app is defaulted to search for 100 most recent Tesla tweets, simply change to whatever company and however many number of tweets to parse. The app returns the top 5 most positive and negative tweets about the specified company (or anything really) both using NLTK and TextBlob.
+
+## Text Cleaning
+After reading in the csv file that I created after scraping my data, I had to clean the text as the original texts contained @mentions, hashtags, numbers and emojis which the models that I used couldn't handle. 
+
+Text Cleaning Code (Regular Expression):
+
+![Text Cleaning Code](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/clean_text_code.JPG "Text Cleaning Code")
+
+Before Cleaning:
+
+![Before](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/tweets_uncleaned.JPG "Before")
+
+After Cleaning:
+
+![After](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/tweets_cleaned.JPG "After")
+
+## Model Implementation and Comparison Dataframe
+Implementing NLTK and TextBlob sentiment analysis models were straightforward and really simple to do.
+
+TextBlob Code:
+
+![tb](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/textblob_code.JPG "tb")
+
+NLTK Code:
+
+![nltk](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/NLTKcode.JPG "nltk")
+
+Final df:
+
+![df](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/cleaned_df.JPG "df")
+
+Comparison df:
+
+![comparison df](https://github.com/julianliu17/Twitter-Sentiment-Analysis-App/blob/main/pics/comparison_df.JPG "comparison df")
+
+In the comparison df we can see the differences in tweets determined by both NLTK and TextBlob as top 5 most positive and most negative.
+
+## Bugs
+There is a bug in my `mainapp.py` code, when the tweets are too long or has a few too many new lines, the tkinter window fails to show all of the information as I did not add a scroll bar. However, the main objective of this project was to create a functional sentiment analysis app that quickly allows users to have a feel for the overall positivity or negativity of a company/topic of interest to them, I would say the basic functionality of this app satisfies my original objective (and I was too lazy to change my code, as I found that in order to add a scrollbar I have to add a canvas etc.)
